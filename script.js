@@ -1,30 +1,59 @@
 const button = document.getElementById('button');
 const level = document.getElementById('level');
 
-//создание карты и переворот
-const body = document.body
-let card = document.createElement ('div');
-let cardInner = document.createElement ('div');
-let cardFront = document.createElement ('div');
-let cardBack = document.createElement ('div');
-let imageFront = new Image();
-let imageBack = new Image();
+const wrapperGame = document.querySelector('.wrapper-game');
 
-card.className = 'flip-card';
-body.appendChild(card);
+let levels = document.querySelectorAll('.level__item');
+levels.forEach(level => {
+  level.addEventListener('click', () => {
+    levels.forEach(lvl => lvl.classList.remove('active'));
+    level.classList.add('active');
+  })
+})
 
-cardInner.className = 'flip-card__inner';
-card.appendChild(cardInner);
+function renderCard(number) {
+  for(let i=0; i<number; i++) {
+    let card = document.createElement ('div');
+    let cardInner = document.createElement ('div');
+    let cardFront = document.createElement ('div');
+    let cardBack = document.createElement ('div');
 
-cardFront.className = 'flip-card__front';
-cardInner.appendChild(cardFront);
-imageFront.src = 'img/card-front.png';
-cardFront.appendChild(imageFront);
+    card.className = 'flip-card';
+    wrapperGame.appendChild(card);
 
-cardBack.className = 'flip-card__back';
-cardInner.appendChild(cardBack);
-imageBack.src = 'img/card1.png';
-cardBack.appendChild(imageBack);
+    cardInner.className = 'flip-card__inner';
+    card.appendChild(cardInner);
 
-let rotate = () => cardInner.classList.toggle('rotate');
-card.addEventListener('click', rotate);
+    cardFront.className = 'flip-card__front';
+    cardInner.appendChild(cardFront);
+
+    cardBack.className = 'flip-card__back';
+    cardInner.appendChild(cardBack);
+
+    let rotate = () => cardInner.classList.toggle('rotate');
+    card.addEventListener('click', rotate);
+  }
+}
+
+function chooseLevel(level) {
+  switch(level) {
+    case 'Простой':
+    renderCard(3);
+    break;
+    case 'Средний':
+    renderCard(6);
+    break;
+    case 'Сложный':
+    renderCard(10);
+    break;
+  }
+}
+
+function startGame() {
+  let level = document.querySelector('.active').innerText;
+  chooseLevel(level);
+  document.querySelector('.wrapper').style.display = 'none';
+  wrapperGame.style.display = 'flex';
+}
+
+button.addEventListener('click', startGame);
