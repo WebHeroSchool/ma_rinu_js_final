@@ -15,6 +15,14 @@ body {
   margin: 0 auto;
 }
 
+.middle {
+  width: 100%;
+}
+
+.hard {
+  width: 70%;
+}
+
 .wrapper {
   margin: 0;
   width: auto;
@@ -158,6 +166,16 @@ body {
 
 .rotate{
   transform: rotateY(180deg);
+}
+
+@media (max-width: 1440px) {
+  .middle {
+    width: 65%;
+  }
+
+  .hard {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1300px) {

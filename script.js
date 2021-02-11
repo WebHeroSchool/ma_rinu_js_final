@@ -11,6 +11,14 @@ levels.forEach(level => {
   })
 })
 
+function deleteCards() {
+  document.querySelector('.wrapper').style.display = 'block';
+  wrapperGame.style.display = 'none';
+  wrapperGame.innerHTML = '';
+  wrapperGame.className = 'wrapper-game';
+}
+
+
 function renderCard(number) {
   for(let i=0; i<number; i++) {
     let card = document.createElement ('div');
@@ -30,8 +38,15 @@ function renderCard(number) {
     cardBack.className = 'flip-card__back';
     cardInner.appendChild(cardBack);
 
-    let rotate = () => cardInner.classList.toggle('rotate');
-    card.addEventListener('click', rotate);
+    let rotate = () => {
+      let number = Math.round(Math.random());
+      cardInner.classList.toggle('rotate');
+      if (number === 1) cardBack.classList.add('flip-card__back-bug');
+      let cards = document.querySelectorAll('.flip-card');
+      cards.forEach(card => card.addEventListener('click', deleteCards));
+      console.log(cards);
+    }
+      card.addEventListener('click', rotate);
   }
 }
 
@@ -39,12 +54,15 @@ function chooseLevel(level) {
   switch(level) {
     case 'Простой':
     renderCard(3);
+    wrapperGame.classList.add('easy');
     break;
     case 'Средний':
     renderCard(6);
+    wrapperGame.classList.add('middle');
     break;
     case 'Сложный':
     renderCard(10);
+    wrapperGame.classList.add('hard');
     break;
   }
 }
