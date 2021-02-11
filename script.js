@@ -44,8 +44,7 @@ function renderCard(number) {
       if (number === 1) cardBack.classList.add('flip-card__back-bug');
       let cards = document.querySelectorAll('.flip-card');
       cards.forEach(card => card.addEventListener('click', deleteCards));
-      console.log(cards);
-    }
+      }
       card.addEventListener('click', rotate);
   }
 }

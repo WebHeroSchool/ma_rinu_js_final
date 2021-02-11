@@ -26,7 +26,7 @@ body {
 .wrapper {
   margin: 0;
   width: auto;
-  height: 100%;
+  height: 100vh;
   padding-left: 103px;
 }
 
@@ -106,8 +106,9 @@ body {
 .image-cards {
   background-image: url('img/2cards.png');
   background-repeat: no-repeat;
-  height: 408px;
-  width: 515px;
+  background-size: contain;
+  height: 449px;
+  width: 521px;
   position: absolute;
   left: 59.3%;
   top: 49.7%;
@@ -168,6 +169,15 @@ body {
   transform: rotateY(180deg);
 }
 
+@media (max-width: 1720px) {
+  .hard {
+    width: 84%;
+  }
+
+  .middle {
+    width: 56%;
+  }
+
 @media (max-width: 1440px) {
   .middle {
     width: 65%;
@@ -178,14 +188,35 @@ body {
   }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1301px) {
+  .middle {
+    width: 50%;
+  }
+
+  .hard {
+    width: 80%;
+  }
+
+  .flip-card {
+    width: 152px;
+    height: 239px;
+  }
+
   .image-cards {
+    height: 363px;
+    width: 469px;
     left: 47.3%;
-    top: 30.7%;
+    top: 36.7%;
   }
 }
 
-@media (max-width: 1027px) {
+@media (max-width: 1098px) {
+  .hard {
+    width: 96%;
+  }
+}
+
+@media (max-width: 1029px) {
   .title {
     font-size: 253%;
   }
@@ -204,30 +235,43 @@ body {
   }
 
   .image-cards {
-    left: 37.3%;
-    top: 22.7%;
+    left: 52.3%;
+    top: 34.7%;
+    width: 385px;
   }
 
   .flip-card {
     width: 152px;
     height: 239px;
   }
+
+  .middle {
+    width: 70%;
+  }
 }
 
-@media (max-width: 911px) {
+@media (max-width: 926px) {
+  .hard {
+    width: 100%;
+  }
+
+  .middle {
+    width: 69%;
+  }
+
   .image-cards {
-    left: 25%;
+    left: 27%;
     top: 2%;
   }
 
   .title {
-    padding-top: 440px;
+    padding-top: 355px;
   }
 
   .wrapper {
     text-align: center;
     padding-left: 0;
-    margin-bottom: 42px
+    margin-bottom: 0;
   }
 
   .active::after {
@@ -254,6 +298,13 @@ body {
 
   .active::after {
     display: none;
+  }
+}
+
+@media (max-width: 880px) {
+  .flip-card {
+    width: 107px;
+    height: 168px;
   }
 }
 
@@ -284,3 +335,47 @@ body {
     padding: 13px 31px;
   }
 }
+
+@media (max-width: 702px) {
+  .image-cards {
+    height: 198px;
+    width: 244px;
+  }
+
+  .title {
+    padding-top: 242px;
+    font-size: 150%;
+  }
+
+  .level__item {
+    font-size: 136%;
+  }
+
+  .level__item:last-child {
+    margin-bottom: 13%;
+  }
+
+  .middle {
+    width: 58%;
+  }
+}
+
+/* @media (max-width: 702px) {
+  .image-cards {
+    height: 198px;
+    width: 244px;
+  }
+
+  .title {
+    padding-top: 242px;
+    font-size: 150%;
+  }
+
+  .level__item {
+    font-size: 136%;
+  }
+
+  .level__item:last-child {
+    margin-bottom: 13%;
+  }
+} */
